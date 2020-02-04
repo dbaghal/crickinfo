@@ -1,0 +1,40 @@
+{% load staticfiles %}
+<div class="sidebar-wrapper">
+    <div class="dashboard-menu">
+        <ul>
+            <li class="active">
+                <a href="http://127.0.0.1:8000/">
+                    <span class="img-block">
+                        <img src="{% static 'user/images/menu-icon-1.png' %}">
+                    </span>
+                    Team
+                </a>
+            </li>
+            <li >
+                <a href="/matches_list/">
+                    <span class="img-block">
+                        <img src="{% static 'user/images/menu-icon-2.png' %}">
+                    </span>
+                    Match
+                </a>
+            </li>
+             <li >
+                <a href="/points_table/">
+                    <span class="img-block">
+                        <img src="{% static 'user/images/menu-icon-2.png' %}">
+                    </span>
+                    Points Table
+                </a>
+            </li>
+             <li >
+                <a href="/player_history/">
+                    <span class="img-block">
+                        <img src="{% static 'user/images/menu-icon-2.png' %}">
+                    </span>
+                    Player History
+                </a>
+            </li>
+
+        </ul>
+    </div>
+</div>

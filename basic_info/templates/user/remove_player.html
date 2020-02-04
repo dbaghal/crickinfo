@@ -1,0 +1,30 @@
+{% include 'user/header.html'%}
+
+{% include 'user/side_bar.html'%}
+{% load static %}
+
+<div class="content-wrapper station-detail-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-12">
+                        <div class="page-main-title">
+                            <h3>Are you sure?</h3>
+                            <p>You're about to delete {{ player }}. Please confirm.</p>
+                            <form action="" method="post">
+                                {% csrf_token %}
+                                <input class="btn btn-link"
+                                       type="button" value="Cancel"
+                                       onclick="window.history.go(-1);"/>
+                                <input class="btn btn-danger" type="submit" value="Confirm"/>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% include 'user/footer.html'%}

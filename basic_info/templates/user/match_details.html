@@ -1,0 +1,120 @@
+{% include 'user/header.html'%}
+
+{% include 'user/side_bar.html'%}
+{% load static %}
+<div class="content-wrapper station-detail-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-12">
+                        <div class="page-main-title">
+                            <h2>Match details </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+           <div class="col-lg-12">
+               <div class="dashboard-notification-block dashboard-notification-big-block bg-grey text-left">
+                    <div class="station-detail-block">
+
+                        <div class="row">
+                            <div class="col-lg-6 col-6">
+                                <p> Match No: </p>
+                            </div>
+                            <div class="col-lg-6 col-6">
+                                <p> {{match.id}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6 col-6">
+                                <p> Teams </p>
+                            </div>
+                            <div class="col-lg-6 col-6">
+                                <p> {{match}} </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6 col-6">
+                                <p> Winner Team  </p>
+                            </div>
+                            <div class="col-lg-6 col-6">
+                                <p> {{winner}}</p>
+                            </div>
+                        </div>
+
+
+                </div>
+
+           </div>
+               <div class ="row">
+                <h4>Winning Team Scores</h4>
+             <table class="table table-striped">
+
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>Firstname</th>
+                        <th>Lastname</th>
+                        <th>Runs</th>
+                        <th>Fifty</th>
+                          <th>Hundred</th>
+                          <th>Highet Score</th>
+                          <th>Wickets</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    {% for pl in player %}
+                      <tr>
+                        <td>{{ forloop.counter}}</td>
+                        <td>{{ pl.player.first_name }}</td>
+                        <td>{{ pl.player.last_name }}</td>
+                        <td>{{ pl.runs }}</td>
+                        <td>{{ pl.fifty }}</td>
+                        <td>{{ pl.hundred }}</td>
+                          <td>{{ pl.highest_score }}</td>
+                          <td>{{ pl.wicket }}</td>
+                      </tr>
+                    {% endfor %}
+                    </tbody>
+            </table>
+         </div>
+                <div class ="row">
+                <h4>Losing Team Scores</h4>
+             <table class="table table-striped">
+
+                    <thead>
+                      <tr>
+<!--                        <th>Image</th>-->
+                        <th>Firstname</th>
+                        <th>Lastname</th>
+                        <th>Runs</th>
+                        <th>Fifty</th>
+                          <th>Hundred</th>
+                          <th>Highet Score</th>
+                          <th>Wickets</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    {% for pl in looser %}
+                      <tr>
+<!--                        <td><img class="card-img-top" src="{{ pl.image.url }}" alt="Card image cap" height="50" width="50"></td>-->
+                        <td>{{ pl.player.first_name }}</td>
+                        <td>{{ pl.player.last_name }}</td>
+                        <td>{{ pl.runs }}</td>
+                        <td>{{ pl.fifty }}</td>
+                        <td>{{ pl.hundred }}</td>
+                          <td>{{ pl.highest_score }}</td>
+                          <td>{{ pl.wicket }}</td>
+                      </tr>
+                    {% endfor %}
+                    </tbody>
+            </table>
+         </div>
+
+        </div>
+
+</div>
+{% include 'user/footer.html'%}

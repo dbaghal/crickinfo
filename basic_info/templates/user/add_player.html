@@ -1,0 +1,26 @@
+{% include 'user/header.html'%}
+
+{% include 'user/side_bar.html'%}
+{% load static %}
+<div class="content-wrapper station-detail-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-12">
+                        <div class="page-main-title">
+
+                            <form method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <input type="submit" class="btn btn-primary" value="Submit">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% include 'user/footer.html'%}

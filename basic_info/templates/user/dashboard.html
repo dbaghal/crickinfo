@@ -1,0 +1,76 @@
+{% include 'user/header.html'%}
+{%load static %}
+{% include 'user/side_bar.html' %}
+
+<div class="content-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="page-main-title">
+                    <h2> Teams </h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="product-listing-table full-width-table mt-40">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Logo</th>
+                                <th>Name</th>
+                                <th> Club State</th>
+                                <th> Actions </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for team in teams %}
+                            <tr>
+                                <td>{{ forloop.counter }}</td>
+                                <td><img src="{{ team.logo.url }}"></td>
+                                <td>{{ team.name }}</td>
+                                <td>{{ team.club_state }}</td>
+                                <td>
+                                    <a href="{% url 'team_identity' pk=team.id %}">
+                                        <img src="{% static 'user/images/icon-eye.png'%}">
+                                    </a>
+                                </td>
+                            </tr>
+                        {% empty %}
+                        <tr>
+                            <td colspan="5">No Data</td>
+                        </tr>
+                        {% endfor %}
+
+                        </tbody>
+                    </table>
+
+                            {% if teams.has_other_pages %}
+                              <ul class="pagination">
+                                {% if teams.has_previous %}
+                                  <li><a href="?page={{ teams.previous_page_number }}">&laquo;</a></li>
+                                {% else %}
+                                  <li class="disabled"><span>&laquo;</span></li>
+                                {% endif %}
+                                {% for i in teams.paginator.page_range %}
+                                  {% if teams.number == i %}
+                                    <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+                                  {% else %}
+                                    <li><a href="?page={{ i }}">{{ i }}</a></li>
+                                  {% endif %}
+                                {% endfor %}
+                                {% if teams.has_next %}
+                                  <li><a href="?page={{ teams.next_page_number }}">&raquo;</a></li>
+                                {% else %}
+                                  <li class="disabled"><span>&raquo;</span></li>
+                                {% endif %}
+                              </ul>
+                            {% endif %}
+
+                </div>
+        </div>
+    </div>
+</div>
+{% include 'user/footer.html'%}

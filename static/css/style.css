@@ -1,0 +1,93 @@
+/* Custom Stylesheet */
+
+nav ul a,
+nav .brand-logo {
+    color: #444;
+}
+
+p {
+    line-height: 2rem;
+}
+
+img {
+    max-width: 100%;
+}
+
+.sidenav-trigger {
+    color: #26a69a;
+}
+
+.parallax-container {
+    min-height: 380px;
+    line-height: 0;
+    height: auto;
+    color: rgba(255, 255, 255, .9);
+}
+
+.parallax-container .section {
+    width: 100%;
+}
+
+@media only screen and (max-width: 992px) {
+    .parallax-container .section {
+        position: absolute;
+        top: 40%;
+    }
+    #index-banner .section {
+        top: 10%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    #index-banner .section {
+        top: 0;
+    }
+}
+
+.icon-block {
+    padding: 0 15px;
+}
+
+.icon-block .material-icons {
+    font-size: inherit;
+}
+
+footer.page-footer {
+    margin: 0;
+}
+
+.datepicker-date-display {
+    color: #fff;
+}
+
+#search-button {
+    width: 200px;
+}
+
+.item img {
+    width: 100%;
+    overflow: hidden;
+}
+
+.card {
+    width: calc(100%/3 - 20px);
+    float: left;
+    margin: 10px;
+}
+
+.card img {
+    height: 160px;
+    max-height: 160px;
+}
+
+.card:nth-child(3n+1) {
+    clear: left;
+}
+
+.display-t {
+    display: table;
+}
+
+.display-tc {
+    display: table-cell;
+}

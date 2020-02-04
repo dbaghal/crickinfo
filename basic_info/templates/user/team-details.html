@@ -1,0 +1,91 @@
+{% include 'user/header.html'%}
+
+{% include 'user/side_bar.html'%}
+{% load static %}
+<div class="content-wrapper station-detail-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-12">
+                        <div class="page-main-title">
+                            <h2> Team Detail and Players</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+           <div class="col-lg-12">
+               <div class="dashboard-notification-block dashboard-notification-big-block bg-grey text-left">
+                    <div class="station-detail-block">
+                        <div class="row">
+                            <div class="col-lg-6 col-6">
+                                <p>Logo</p>
+                            </div>
+                            <div class="col-lg-6 col-6">
+                                <div class="display-tc" style="width:30%;padding-right:3rem;vertical-align:middle;">
+                                <img class="card-img-top" src="{{ team.logo.url }}" alt="Card image cap">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6 col-6">
+                                <p> Team Name </p>
+                            </div>
+                            <div class="col-lg-6 col-6">
+                                <p> {{ team.name | capfirst }} </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6 col-6">
+                                <p> Club State </p>
+                            </div>
+                            <div class="col-lg-6 col-6">
+                                <p> {{team.club_state}} </p>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+           </div>
+        </div>
+         <div class ="row">
+
+             <div>
+                 <a href="{% url 'player-add' pk=team.id%}" class="btn btn-primary" role="button">Add</a>
+             </div>
+             <br/>
+             <br/>
+
+             <table class="table table-striped">
+
+                    <thead>
+                      <tr>
+                        <th>Image</th>
+                        <th>Firstname</th>
+                        <th>Lastname</th>
+                        <th>Jersy Number</th>
+                        <th>Country</th>
+                          <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    {% for pl in player %}
+                      <tr>
+                        <td><img class="card-img-top" src="{{ pl.image.url }}" alt="Card image cap" height="50" width="50"></td>
+                        <td>{{ pl.first_name }}</td>
+                        <td>{{ pl.last_name }}</td>
+                        <td>{{ pl.jersy_number }}</td>
+                        <td>{{ pl.country }}</td>
+                        <td><a href="{% url 'player-update' pk=pl.id %}" class="btn btn-primary" role="button">Edit</a>
+                        <a href="{% url 'player-delete' pk=pl.id %}" class="btn btn-primary" role="button">Delete</a> </td>
+                      </tr>
+                    {% endfor %}
+                    </tbody>
+            </table>
+         </div>
+    </div>
+</div>
+{% include 'user/footer.html'%}

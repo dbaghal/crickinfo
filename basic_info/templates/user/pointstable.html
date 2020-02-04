@@ -1,0 +1,73 @@
+{% include 'user/header.html'%}
+{%load static %}
+{% include 'user/side_bar.html' %}
+
+<div class="content-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="page-main-title">
+                    <h2> Points Table </h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="product-listing-table full-width-table mt-40">
+                    <table>
+                        <thead>
+                           <tr>
+                           <th>Team</th>
+                            <th>Matches</th>
+                            <th>Win</th>
+                            <th>Loss</th>
+                            <th>Points</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            {% for point in pointstable_list %}
+                                  <tr>
+                                    <td>{{ point.team_name }}</td>
+                                    <td>{{ point.matches }}</td>
+                                    <td>{{ point.win }}</td>
+                                    <td>{{ point.loss }}</td>
+                                    <td>{{ point.points }}</td>
+                                  </tr>
+
+                            {% empty %}
+                                    <tr>
+                                        <td colspan="5">No Data</td>
+                                    </tr>
+                            {% endfor %}
+
+                        </tbody>
+                    </table>
+                </div>
+<!--                <div class="custom-pagination">-->
+<!--                    {% if station.has_other_pages %}-->
+<!--                    -->
+<!--                        {% if station.has_previous %}-->
+<!--                        <span><a href="?page={{ station.previous_page_number }}">&laquo;</a></span>-->
+<!--                        {% else %}-->
+<!--                        <span class="disabled"><span>&laquo;</span></span>-->
+<!--                        {% endif %}-->
+<!--                        {% for i in station.paginator.page_range %}-->
+<!--                        {% if station.number == i %}-->
+<!--                            <span class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></span>-->
+<!--                        {% else %}-->
+<!--                            <span><a href="?page={{ i }}">{{ i }}</a></span>-->
+<!--                        {% endif %}-->
+<!--                        {% endfor %}-->
+<!--                        {% if station.has_next %}-->
+<!--                        <span><a href="?page={{ station.next_page_number }}">&raquo;</a></span>-->
+<!--                        {% else %}-->
+<!--                        <span class="disabled"><span>&raquo;</span></span>-->
+<!--                        {% endif %}-->
+<!--                    -->
+<!--                    {% endif %}-->
+<!--                </div>-->
+        </div>
+    </div>
+</div>
+{% include 'user/footer.html'%}
